@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+properties([
+  parameters { text(name: 'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree\n', description: '') }
+])
     stages {
         stage('Build') {
             steps {
