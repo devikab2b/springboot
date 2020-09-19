@@ -1,9 +1,10 @@
 pipeline {
     agent any
  parameters {
-        string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
+        string( description: 'What environment?')
         choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
         text(name: 'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree\n', description: '')
+        label(name:'test',description:'test')
     }
   stages {
         stage('Build') {
