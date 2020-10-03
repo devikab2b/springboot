@@ -3,14 +3,23 @@ pipeline {
  parameters {
         separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment")
         string(defaultValue: "123", description: 'What environment?', name: 'userFlag')
-        choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
+        choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'qa-action')
         text(name: 'DEPLOY_TEXT1', defaultValue: 'One\nTwo\nThree\n', description: 'test')
         
     }
   stages {
         stage('Build') {
             steps {
+                if(params.qa-action == 'US_EAST_1') {
                 echo 'Building..'
+                                           
+                                       } else {
+                                             
+                                          echo 'Building..'   
+                                         }
+
+
+               
             }
         }
         stage('Test') {
