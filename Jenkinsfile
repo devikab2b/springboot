@@ -7,17 +7,21 @@ pipeline {
         text(name: 'DEPLOY_TEXT2', defaultValue: 'One\nTwo\nThree\n', description: 'test')
         
     }
+    
+    if(params.qa-action == 'US_EAST_1') {
+       echo 'hello2'
+    } else {
+          
+          echo 'hello'
+      }
+
   stages {
         stage('Build') {
             steps {
-                if(params.qa-action == 'US_EAST_1') {
-                echo 'Building..'
+                
+                         echo 'Building..'
                                            
-                                       } else {
-                                             
-                                          echo 'Building..'   
-                                         }
-
+                
 
                
             }
