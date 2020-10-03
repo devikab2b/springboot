@@ -4,7 +4,7 @@ pipeline {
         separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment")
         string(defaultValue: "123", description: 'What environment?', name: 'userFlag')
         choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
-        text(name: 'DEPLOY_TEXT1', defaultValue: 'One\nTwo\nThree\n', description: '')
+        text(name: 'DEPLOY_TEXT1', defaultValue: 'One\nTwo\nThree\n', description: 'test')
         
     }
   stages {
