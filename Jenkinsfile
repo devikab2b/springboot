@@ -12,31 +12,10 @@ pipeline {
 
   stages {
         stage('Build') {
-           if(params.qa-action == 'US_EAST_1') {
-       echo 'hello2'
-       steps {
-                
-                         echo 'Building..'
-                                           
-                
-
-               
-            }
-       
-    } else {
           
           echo 'hello'
-          steps {
-                
-                         echo 'Building..'
-                                           
-                
-
-               
-            }
-          
       }
-                    }
+                   
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -47,5 +26,12 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        stage('test3') {
+            if (params.region == 'master') {
+                echo 'I only execute on the master branch'
+            } else {
+                echo 'I execute elsewhere'
+            }                        
+        }      
     }
 }
