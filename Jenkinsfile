@@ -8,16 +8,13 @@ pipeline {
         
     }
     
-    if(params.qa-action == 'US_EAST_1') {
-       echo 'hello2'
-    } else {
-          
-          echo 'hello'
-      }
+    
 
   stages {
         stage('Build') {
-            steps {
+           if(params.qa-action == 'US_EAST_1') {
+       echo 'hello2'
+       steps {
                 
                          echo 'Building..'
                                            
@@ -25,7 +22,21 @@ pipeline {
 
                
             }
-        }
+       
+    } else {
+          
+          echo 'hello'
+          steps {
+                
+                         echo 'Building..'
+                                           
+                
+
+               
+            }
+          
+      }
+                    }
         stage('Test') {
             steps {
                 echo 'Testing..'
